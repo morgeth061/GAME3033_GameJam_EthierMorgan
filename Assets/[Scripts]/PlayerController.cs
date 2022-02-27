@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(transform.position.x + (playerMovement * 0.001f), transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x + (playerMovement * Time.deltaTime), transform.position.y, transform.position.z);
 
         if (rigidBody.velocity.y < 0)
         {

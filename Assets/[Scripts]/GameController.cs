@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         tempSpeed = moveSpeed;
+        Time.timeScale = 1;
     }
 
     public void GameLoss()

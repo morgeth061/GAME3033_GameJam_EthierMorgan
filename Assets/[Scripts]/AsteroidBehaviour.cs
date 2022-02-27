@@ -16,7 +16,7 @@ public class AsteroidBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - gameController.GetComponent<GameController>().moveSpeed);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - gameController.GetComponent<GameController>().moveSpeed * Time.deltaTime);
         transform.Rotate(new Vector3(15 * Time.deltaTime, 60 * Time.deltaTime, 0), Space.World);
     }
 

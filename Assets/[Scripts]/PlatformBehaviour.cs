@@ -26,7 +26,7 @@ public class PlatformBehaviour : MonoBehaviour
     void Update()
     {
         moveSpeed = gameController.GetComponent<GameController>().moveSpeed;
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - moveSpeed);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - moveSpeed * Time.deltaTime);
 
         if (transform.position.z < -10 && type == platformType.PLATFORM)
         {

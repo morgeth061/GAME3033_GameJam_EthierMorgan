@@ -40,4 +40,10 @@ public class MainMenuUIController : MonoBehaviour
         InstructionsCanvas.SetActive(false);
         CreditsCanvas.SetActive(true);
     }
+
+    public void OnQuitClick()
+    {
+        print("Quitting!");
+        Application.Quit();
+    }
 }
