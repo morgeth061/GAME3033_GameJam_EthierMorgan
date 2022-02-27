@@ -17,6 +17,7 @@ public class AsteroidBehaviour : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - gameController.GetComponent<GameController>().moveSpeed);
+        transform.Rotate(new Vector3(15 * Time.deltaTime, 60 * Time.deltaTime, 0), Space.World);
     }
 
     public void Setup()

@@ -65,6 +65,6 @@ public class GameController : MonoBehaviour
 
     public void OnMainMenuClick()
     {
-
+        SceneManager.LoadScene("MenuScene");
     }
 }
