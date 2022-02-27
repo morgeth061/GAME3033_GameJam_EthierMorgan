@@ -25,10 +25,15 @@ public class PlatformBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moveSpeed = gameController.GetComponent<GameController>().moveSpeed;
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - moveSpeed);
 
         if (transform.position.z < -10 && type == platformType.PLATFORM)
         {
+            if (!gameController.GetComponent<GameController>().canMove)
+            {
+                gameController.GetComponent<GameController>().canMove = true;
+            }
             transform.position = new Vector3(transform.position.x, transform.position.y, 45.0f);
         }
         else if(transform.position.z < -10 && type != platformType.PLATFORM)
