@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Asteroid
+  - DeathPlane
   layers:
   - Default
   - TransparentFX

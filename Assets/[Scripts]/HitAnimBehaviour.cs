@@ -20,8 +20,7 @@ public class HitAnimBehaviour : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         GameObject.FindGameObjectWithTag("Player").gameObject.SetActive(false);
-        GameObject.FindGameObjectWithTag("GameController").gameObject.SetActive(false);
-        Time.timeScale = 0;
+        GameObject.FindGameObjectWithTag("GameController").gameObject.GetComponent<GameController>().ShowEndUI(false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

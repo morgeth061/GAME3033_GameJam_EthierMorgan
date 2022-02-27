@@ -11,11 +11,13 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = true;
     private Rigidbody rigidBody;
     private Animator animator;
+    private AudioSource jumpSFX;
 
     void Start()
     {
         rigidBody = gameObject.GetComponent<Rigidbody>();
         animator = gameObject.GetComponent<Animator>();
+        jumpSFX = gameObject.GetComponent<AudioSource>();
     }
     public void OnMovement(InputValue value)
     {
@@ -27,11 +29,17 @@ public class PlayerController : MonoBehaviour
     {
         if (gameController.GetComponent<GameController>().canMove && isGrounded)
         {
+            jumpSFX.Play();
             rigidBody.AddForce(new Vector3(0.0f, 250.0f, 0.0f));
             animator.SetBool("IsGrounded", false);
             animator.SetTrigger("Jump");
             isGrounded = false;
         }
+    }
+
+    public void OnPause(InputValue value)
+    {
+        gameController.GetComponent<GameController>().Pause();
     }
 
     void Update()
@@ -64,6 +72,11 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             animator.SetBool("IsGrounded", true);
+        }
+
+        if (other.CompareTag("DeathPlane"))
+        {
+            gameController.GetComponent<GameController>().ShowEndUI(false);
         }
     }
 }
